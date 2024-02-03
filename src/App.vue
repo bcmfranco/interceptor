@@ -5,14 +5,14 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <div id="isotype">I</div>
+    <div id="isotype">INT</div>
 
     <div class="wrapper">
       <h1>Interceptor</h1>
-      <!-- <h2>online </h2> -->
+      <h2>online </h2>
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Interés simple</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
@@ -22,19 +22,31 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style scoped>
+
+:root {
+  --vue_green: #26a69a;
+}
+
+@font-face {
+  font-family: 'Anton';
+  src: url('assets/anton/Anton-Regular.ttf') format('truetype');
+}
+
 header{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 25% 50% 25%;
 }
 
-header h1{
-  text-align: center;
-}
-
 #isotype {
   display: block;
-  margin: 0 auto 2rem;
+  font-family: 'Anton', sans-serif;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 25px;
+  color: #26a69a;
 }
 
 nav {
@@ -69,15 +81,30 @@ nav a:first-of-type {
     align-items: center;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  #isotype{
+    font-size: 50px;
   }
 
   header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 25% 25%;
+    align-items: center;
+    height: 100px;
   }
+
+  .wrapper h1{
+    color: red;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .wrapper h2{
+    color: red;
+    margin: 0px;
+    padding: 0px;
+  }
+
 
   nav {
     text-align: left;
