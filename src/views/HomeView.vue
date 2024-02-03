@@ -11,6 +11,8 @@
 
     <label for="returnY">Retorno bruto (Y):</label>
     <input :value="calculateReturnY" disabled />
+
+    <button @click="limpiarInputs">Limpiar</button>
   </div>
 </template>
 
@@ -34,6 +36,10 @@ export default {
         return parseFloat(this.capital) + parseFloat(this.calculateReturnX);
       }
       return null;
+    },
+    limpiarInputs() {
+      this.capital = null;
+      this.interest = null;
     }
   }
 };
@@ -43,11 +49,10 @@ export default {
 #container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
 }
 
 .input-field {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 label {
@@ -60,7 +65,22 @@ input {
   padding: 10px;
   border: 1px solid #26a69a;
   border-radius: 4px;
-  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px;
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #208c7d;
 }
 
 .result-field {
