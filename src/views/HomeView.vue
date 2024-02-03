@@ -1,5 +1,6 @@
 <template>
   <div id="container">
+    <h2>Calculadora de interés simple</h2>
     <label for="capital">Capital:</label>
     <input v-model="capital" placeholder="Ingrese el capital" />
 
@@ -7,12 +8,12 @@
     <input v-model="interest" placeholder="Ingrese el interés" />
 
     <label for="returnX">Retorno neto (X):</label>
-    <input :value="calculateReturnX" disabled />
+    <input :value="calculate_return_x" disabled />
 
-    <label for="returnY">Retorno bruto (Y):</label>
-    <input :value="calculateReturnY" disabled />
+    <label for="return">Retorno bruto (Y):</label>
+    <input :value="calculate_return_y" disabled />
 
-    <button @click="limpiarInputs">Limpiar</button>
+    <button @click="clear_inputs">Limpiar</button>
   </div>
 </template>
 
@@ -25,19 +26,19 @@ export default {
     };
   },
   computed: {
-    calculateReturnX() {
+    calculate_return_x() {
       if (this.capital && this.interest) {
         return parseFloat(this.capital) * (parseFloat(this.interest) / 100);
       }
       return null;
     },
-    calculateReturnY() {
+    calculate_return_y() {
       if (this.capital && this.interest) {
-        return parseFloat(this.capital) + parseFloat(this.calculateReturnX);
+        return parseFloat(this.capital) + parseFloat(this.calculate_return_x);
       }
       return null;
     },
-    limpiarInputs() {
+    clear_inputs() {
       this.capital = null;
       this.interest = null;
     }
@@ -46,18 +47,33 @@ export default {
 </script>
 
 <style scoped>
+
+@font-face {
+  font-family: 'Anton';
+  src: url('~@/assets/anton/Anton-Regular.ttf') format('truetype');
+}
+
+:root {
+  --vue_green: #26a69a;
+}
+
 #container {
   display: grid;
   grid-template-columns: 1fr;
 }
 
-.input-field {
-  /* margin-bottom: 20px; */
+#container h2{
+  padding: 5px 0px;
+    text-transform: uppercase;
+    text-decoration: underline #26a69a;
+    font-weight: 300;
+    font-size: 24px;
+    color: #26a69a;
 }
 
 label {
   font-size: 16px;
-  color: #26a69a;
+  color: var(--vue_green);
 }
 
 input {
@@ -83,7 +99,7 @@ button:hover {
   background-color: #208c7d;
 }
 
-.result-field {
+.result_field {
   margin-top: 20px;
 }
 </style>
