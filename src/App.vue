@@ -7,14 +7,14 @@ import HelloWorld from './components/HelloWorld.vue'
   <header>
     <div id="isotype">INT</div>
 
-    <div class="wrapper">
-      <h1>Interceptor</h1>
-      <h2>online </h2>
-
+    <div id="brand">
       <nav>
         <RouterLink to="/">Interés simple</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
+
+      <h1>Interceptor</h1>
+      <h2>online </h2>
     </div>
   </header>
 
@@ -38,6 +38,25 @@ header{
   grid-template-rows: 25% 50% 25%;
 }
 
+header #brand {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 25% 25%;
+    align-items: center;
+    height: 100px;
+  }
+
+  #brand h1{
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #brand h2{
+    margin: 0px;
+    padding: 0px;
+  }
+
+
 #isotype {
   display: block;
   font-family: 'Anton', sans-serif;
@@ -52,7 +71,6 @@ header{
 nav {
   width: 100%;
   font-size: 12px;
-  text-align: center;
 }
 
 nav a.router-link-exact-active {
@@ -84,27 +102,6 @@ nav a:first-of-type {
   #isotype{
     font-size: 50px;
   }
-
-  header .wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50% 25% 25%;
-    align-items: center;
-    height: 100px;
-  }
-
-  .wrapper h1{
-    color: red;
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .wrapper h2{
-    color: red;
-    margin: 0px;
-    padding: 0px;
-  }
-
 
   nav {
     text-align: left;
